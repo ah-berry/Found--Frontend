@@ -14,7 +14,7 @@ import {
   } from '@chakra-ui/react'
 import { useEffect, useState } from 'react';
 import { CandidateCard } from "@/../components/CandidateCard";
-import { fetchAllCandidates, createCandidate } from "@/app/api/utilities"
+import { fetchAllCandidates, fetchAllCandidatesForJob, createCandidate } from "@/app/api/utilities"
 import { useAppContext } from '../layout';
 
 export default function CandidatesPage() {
@@ -29,11 +29,6 @@ export default function CandidatesPage() {
     const [createLoading, setCreateLoading] = useState(false);
     const { isOpen, onOpen, onClose } = useDisclosure()
 
-    const fetchCandidates = async () => {
-        const candidatesData = await fetchAllCandidates()
-        setCandidates(candidatesData)
-    }
-
     const handleCandidateCreation = async () => {
       setCreateLoading(true)
       const body = {
@@ -45,13 +40,17 @@ export default function CandidatesPage() {
       setCreateLoading(false)
     }
 
+    const fetchCandidates = async () => {
+      const candidatesData = await fetchAllCandidatesForJob(selectedJobID, {})
+      setCandidates(candidatesData)
+    }
+
     useEffect(() => {
         fetchCandidates()
-    }, [])
+    }, [selectedJobID])
 
     return (
       <div>
-        <Text>{selectedJobID}</Text>
         <Button onClick={onOpen}>Add candidate</Button>
         <Modal isOpen={isOpen} onClose={onClose}>
             <ModalOverlay />

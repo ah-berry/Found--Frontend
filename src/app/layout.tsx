@@ -105,16 +105,8 @@ export default function RootLayout({
 
                     <HStack spacing={{ base: '0', md: '6' }}>
                       <Stack spacing={{ base: '0', md: '6' }}>
-                        {/* {jobs ? 
-                          <Select placeholder='Select job' onChange={(event) => setSelectedJobID(event.target.value)}>
-                            <option value='all'>All</option>
-                            {jobs.map((job, index) => {
-                              return <option key={job.id} value={job.id}>{job.name}</option>
-                            })}
-                          </Select>
-                        :null} */}
                         {jobs ? 
-                          <Select placeholder='Select job'>
+                          <Select placeholder='Select job' onChange={(event) => setSelectedJobID(event.target.value)}>
                             <option value='all'>All</option>
                             {jobs.map((job, index) => {
                               return <option key={job.id} value={job.id}>{job.name}</option>
