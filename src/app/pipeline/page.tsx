@@ -1,7 +1,13 @@
 'use client'
 import React, { useEffect, useState } from "react";
 import { DragDropContext, Draggable, Droppable } from "react-beautiful-dnd";
-import { fetchAllCandidatesPerStages, assignCandidateToInterviewStage, fetchAllCandidatesForJob, fetchInterviewStagesPerJob } from '@/app/api/utilities'
+import { 
+  fetchAllCandidates, 
+  assignCandidateToInterviewStage,
+  assignCandidateToJob, 
+  fetchAllInterviewStages,
+  fetchInterviewStagesPerJob 
+} from '@/app/api/utilities'
 import { 
   Button, 
   Modal,
@@ -11,15 +17,22 @@ import {
   ModalFooter,
   ModalCloseButton,
   Select,
+  useToast,
   useDisclosure 
 } from "@chakra-ui/react"
 import { useAppContext } from "../layout";
 
 function PipelinePage() {
   const { selectedJobID, jobs } = useAppContext()
+  const [ allCandidates, setAllCandidates ] = useState([])
+  const [ allInterviewStages, setAllInterviewStages ] = useState([])
+  const [ selectedCandidate, setSelectedCandidate ] = useState('')
+  const [ selectedJob, setSelectedJob ] = useState('')
+  const [ selectedInterviewStage, setSelectedInterviewStage ] = useState('')
   const [columns, setColumns] = useState({});
   const [assignLoading, setAssignLoading] = useState(false)
   const { isOpen, onOpen, onClose } = useDisclosure()
+  const toast = useToast()
 
   const onDragEnd = async (result, columns, setColumns) => {
     if (!result.destination) return;
@@ -67,6 +80,33 @@ function PipelinePage() {
     setColumns(candidatesPerInterviewStages)
   }
 
+  const fetchCandidates = async () => {
+    const candidates = await fetchAllCandidates()
+    setAllCandidates(candidates)
+  }
+
+  const fetchInterviewStages = async () => {
+    const interviewStages = await fetchAllInterviewStages()
+    console.log('All interview stages: ', interviewStages.all)
+    setAllInterviewStages(interviewStages.all)
+  }
+
+  const handleAssign = async () => {
+    await assignCandidateToJob(selectedCandidate, selectedJob, selectedInterviewStage)
+    toast({
+      title: 'Candidate has been assigned.',
+      description: 'Refresh the page to see changes reflected.',
+      status: 'success',
+      duration: 4000,
+      isClosable: true,
+    })
+  }
+
+  useEffect(() => {
+    fetchCandidates()
+    fetchInterviewStages()
+  }, [])
+
   useEffect(() => {
     loadCandidatesOnPipeline()
   }, [selectedJobID])
@@ -78,23 +118,29 @@ function PipelinePage() {
             <ModalOverlay />
             <ModalContent>
             <ModalHeader>Candidate</ModalHeader>
-            <Select placeholder='Select candidate'>
-
+            <Select placeholder='Select candidate' onChange={(event) => setSelectedCandidate(event.target.value)}>
+              {allCandidates.map((candidate, index) => {
+                    return <option key={candidate.id} value={candidate.id}>{candidate.name}</option>
+                  })}
             </Select>
             <ModalHeader>Job</ModalHeader>
-            <Select placeholder='Select job'>
-
+            <Select placeholder='Select job' onChange={(event) => setSelectedJob(event.target.value)}>
+              {jobs.map((job, index) => {
+                  return <option key={job.id} value={job.id}>{job.name}</option>
+                })}
             </Select>
             <ModalHeader>Interview stage for {selectedJobID}</ModalHeader>
-            <Select placeholder='Select interview stage'>
-              
+            <Select placeholder='Select interview stage' onChange={(event) => setSelectedInterviewStage(event.target.value)}>
+              {allInterviewStages.map((interviewStageObject, index) => {
+                    return <option key={index} value={interviewStageObject[0]}>{interviewStageObject[1]}</option>
+                  })}
             </Select>
             <ModalCloseButton />
             <ModalFooter>
                 <Button colorScheme='blue' mr={3} onClick={onClose}>
                 Close
                 </Button>
-                <Button variant='ghost' isLoading={assignLoading} loadingText='Assigning'>Assign</Button>
+                <Button variant='ghost' isLoading={assignLoading} loadingText='Assigning' onClick={handleAssign}>Assign</Button>
             </ModalFooter>
             </ModalContent>
         </Modal>
