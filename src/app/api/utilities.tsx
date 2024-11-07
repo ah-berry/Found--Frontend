@@ -33,6 +33,24 @@ export async function fetchAllArchivedJobs() {
     return await jobAPI.nonStandardRequestAggregate('GET', 'get_archived_jobs')
 }
 
+export async function editJobDescription(jobID: string, description: string) {
+    const body = {
+        'description': description
+    }
+    return await jobAPI.update(jobID, body)
+}
+
+export async function archiveJob(jobID: string, archiveOrNot: boolean) {
+    const body = {
+        'is_archived': archiveOrNot
+    }
+    return await jobAPI.update(jobID, body)
+}
+
+export async function deleteJob(jobID: string) {
+    return await jobAPI.delete(jobID)
+}
+
 export async function assignCandidateToInterviewStage(candidateID: string, interviewID: string, targetInterviewStage: string) {;
     const body = {
       'interview_id': interviewID,

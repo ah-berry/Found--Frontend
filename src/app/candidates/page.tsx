@@ -36,7 +36,7 @@ export default function CandidatesPage() {
         email: candidateEmail,
         feedback: candidateFeedback
       }
-      const candidateData = await createCandidate(body);
+      await createCandidate(body);
       setCreateLoading(false)
     }
 

@@ -16,7 +16,7 @@ import {
 import { useAppContext } from "../layout";
 
 function PipelinePage() {
-  const { selectedJobID } = useAppContext()
+  const { selectedJobID, jobs } = useAppContext()
   const [columns, setColumns] = useState({});
   const [assignLoading, setAssignLoading] = useState(false)
   const { isOpen, onOpen, onClose } = useDisclosure()
@@ -63,8 +63,8 @@ function PipelinePage() {
   };
 
   const loadCandidatesOnPipeline = async () => {
-    const interviewStages = await fetchInterviewStagesPerJob(selectedJobID, {});
-    setColumns(interviewStages)
+    const candidatesPerInterviewStages = await fetchInterviewStagesPerJob(selectedJobID, {});
+    setColumns(candidatesPerInterviewStages)
   }
 
   useEffect(() => {
@@ -79,6 +79,10 @@ function PipelinePage() {
             <ModalContent>
             <ModalHeader>Candidate</ModalHeader>
             <Select placeholder='Select candidate'>
+
+            </Select>
+            <ModalHeader>Job</ModalHeader>
+            <Select placeholder='Select job'>
 
             </Select>
             <ModalHeader>Interview stage for {selectedJobID}</ModalHeader>

@@ -33,11 +33,29 @@ interface MobileProps extends FlexProps {
 }
 
 interface ContextType {
-  selectedJobID: string
+  selectedJobID: string,
+  jobs: [
+    {
+      created_at: string,
+      description: string,
+      id: string,
+      is_archived: boolean,
+      name: string,
+    }
+  ]
 }
 
 const defaultContext: ContextType = {
-  selectedJobID: "all"
+  selectedJobID: "all",
+  jobs: [
+    {
+      created_at: '',
+      description: '',
+      id: '',
+      is_archived: false,
+      name: '',
+    }
+  ],
 }
 
 let Context = createContext<ContextType>(defaultContext) 
@@ -152,7 +170,7 @@ export default function RootLayout({
                     </HStack>
                   </Flex>
 
-                <Context.Provider value={{selectedJobID: selectedJobID}}>
+                <Context.Provider value={{selectedJobID: selectedJobID, jobs: jobs}}>
                   <Box ml={{ base: 0, md: 60 }} p="4">
                     {children}
                   </Box>

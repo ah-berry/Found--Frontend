@@ -11,7 +11,6 @@ export default function JobsPage() {
 
     const fetchJobs = async () => {
         const jobsData = await fetchAllJobs()
-        console.log("jobsData: ", jobsData)
         setJobs(jobsData)
     }
 
@@ -22,7 +21,13 @@ export default function JobsPage() {
     return (
       <Stack direction='column'>
         {jobs ? jobs.map((job, index) => {
-            return <JobCard key={parseInt(index)} name={job.name} description={job.description} />
+            return job.is_archived == false &&
+            <JobCard 
+              key={parseInt(index)} 
+              id={job.id}
+              name={job.name} 
+              description={job.description}
+              isArchived={job.is_archived} />
         }) : null}
       </Stack>
     )

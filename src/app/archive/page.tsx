@@ -4,14 +4,14 @@ import {
   } from '@chakra-ui/react'
 import { useEffect, useState } from 'react';
 import { JobCard } from "@/../components/JobCard";
-import { fetchAllArchivedJobs } from "@/app/api/utilities"
+import { fetchAllJobs } from "@/app/api/utilities"
 
 export default function ArchivePage() {
   const [jobs, setJobs] = useState([]);
 
   const fetchJobs = async () => {
-      const jobsData = await fetchAllArchivedJobs()
-      setJobs(JSON.parse(jobsData))
+      const jobsData = await fetchAllJobs()
+      setJobs(jobsData)
   }
 
   useEffect(() => {
@@ -21,11 +21,13 @@ export default function ArchivePage() {
   return (
       <Stack direction='column'>
         {jobs ? jobs.map((job, index) => {
-            return <JobCard 
-                        key={parseInt(index)} 
-                        name={job.fields.name} 
-                        description={job.fields.description} 
-                        isArchived={true}/>
+            return job.is_archived == true && 
+            <JobCard 
+              key={parseInt(index)} 
+              id={job.id}
+              name={job.name} 
+              description={job.description} 
+              isArchived={job.is_archived}/>
         }) : null}
       </Stack>
   )
