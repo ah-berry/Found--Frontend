@@ -90,6 +90,7 @@ export default function CandidatesPage() {
           {candidates ? candidates.map((candidate, index) => {
               return <CandidateCard 
                         key={parseInt(index)} 
+                        id={candidate.id}
                         name={candidate.name} 
                         email={candidate.email} 
                         feedback={candidate.feedback}

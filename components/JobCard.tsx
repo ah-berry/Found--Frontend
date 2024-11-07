@@ -62,7 +62,6 @@ export const JobCard = ({ id, name, description, isArchived }: JobCardProps) => 
     }
 
     const handleArchive = async (archiveOrNot: boolean) => {
-        console.log('What is the job id here? ', id)
         await archiveJob(id, archiveOrNot)
         toast({
             title: archiveOrNot ? 'Job posting has been archived.': 'Job posting has been unarchived.',

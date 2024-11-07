@@ -13,16 +13,23 @@ export async function fetchAllCandidates() {
     return await candidateAPI.get("")
 }
 
+export async function createCandidate(body: {}) {
+    return await candidateAPI.post(body);
+}
+
+export async function updateFeedback(candidateID: string, feedback: string) {
+    const body = {
+        'feedback': feedback
+    }
+    return await candidateAPI.update(candidateID, body)
+}
+
 export async function fetchAllCandidatesForJob(jobID: string, body: {}) {
     return await interviewAPI.nonStandardRequestIndividual('GET', 'get_all_candidates_for_job', jobID, body)
 }
 
 export async function fetchInterviewStagesPerJob(jobID: string, body: {}) {
     return interviewAPI.nonStandardRequestIndividual('GET', 'get_interview_stages_per_job', jobID, body)
-}
-
-export async function createCandidate(body: {}) {
-    return await candidateAPI.post(body);
 }
 
 export async function fetchAllJobs() {
