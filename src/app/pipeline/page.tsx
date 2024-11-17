@@ -87,7 +87,6 @@ function PipelinePage() {
 
   const fetchInterviewStages = async () => {
     const interviewStages = await fetchAllInterviewStages()
-    console.log('All interview stages: ', interviewStages.all)
     setAllInterviewStages(interviewStages.all)
   }
 

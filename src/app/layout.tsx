@@ -4,33 +4,21 @@ import {
   Drawer,
   DrawerContent,
   IconButton,
-  Avatar,
   Box,
   Flex,
   HStack,
-  VStack,
   useColorModeValue,
   Text,
   Select,
-  FlexProps,
-  Menu,
-  MenuButton,
-  MenuDivider,
-  MenuItem,
-  MenuList,
   Stack,
   useDisclosure,
 } from '@chakra-ui/react'
 import {
   FiMenu,
-  FiChevronDown,
 } from 'react-icons/fi'
 import { SidebarContent } from "../../components/SidebarWithHeader";
 import { useState, useEffect, createContext, useContext } from "react"
 import { fetchAllJobs } from "./api/utilities";
-interface MobileProps extends FlexProps {
-  onOpen: () => void
-}
 
 interface ContextType {
   selectedJobID: string,

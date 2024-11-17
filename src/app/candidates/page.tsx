@@ -14,7 +14,7 @@ import {
   } from '@chakra-ui/react'
 import { useEffect, useState } from 'react';
 import { CandidateCard } from "@/../components/CandidateCard";
-import { fetchAllCandidates, fetchAllCandidatesForJob, createCandidate } from "@/app/api/utilities"
+import { fetchAllCandidatesForJob, createCandidate } from "@/app/api/utilities"
 import { useAppContext } from '../layout';
 
 export default function CandidatesPage() {
