@@ -25,7 +25,7 @@ import {
   FiMenu,
   FiChevronDown,
 } from 'react-icons/fi'
-import { SidebarContent, MobileNav } from "../../components/SidebarWithHeader";
+import { SidebarContent } from "../../components/SidebarWithHeader";
 import { useState, useEffect, createContext, useContext } from "react"
 import { fetchAllJobs } from "./api/utilities";
 interface MobileProps extends FlexProps {
@@ -132,7 +132,8 @@ export default function RootLayout({
                           </Select>
                         :null}
                       </Stack>
-                      <Flex alignItems={'center'}>
+                      {/* Commenting out admin personalized controls. */}
+                      {/* <Flex alignItems={'center'}>
                         <Menu>
                           <MenuButton py={2} transition="all 0.3s" _focus={{ boxShadow: 'none' }}>
                             <HStack>
@@ -166,7 +167,7 @@ export default function RootLayout({
                             <MenuItem>Sign out</MenuItem>
                           </MenuList>
                         </Menu>
-                      </Flex>
+                      </Flex> */}
                     </HStack>
                   </Flex>
 
