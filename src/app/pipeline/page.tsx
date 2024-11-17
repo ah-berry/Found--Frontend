@@ -111,8 +111,8 @@ function PipelinePage() {
   }, [selectedJobID])
 
   return (
-      <div>
-        <Button onClick={onOpen}>Assign candidate</Button>
+      <>
+        <Button variant="outline" color="green" onClick={onOpen} style={{ display: "block", marginRight: "0", marginLeft: "auto" }}>Assign candidate</Button>
         <Modal isOpen={isOpen} onClose={onClose}>
             <ModalOverlay />
             <ModalContent>
@@ -221,7 +221,7 @@ function PipelinePage() {
               </DragDropContext>
           </div>
         }
-      </div>
+      </>
   );
 }
 

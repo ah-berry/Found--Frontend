@@ -50,8 +50,10 @@ export default function CandidatesPage() {
     }, [selectedJobID])
 
     return (
-      <div>
-        <Button onClick={onOpen}>Add candidate</Button>
+      <>
+        <Button onClick={onOpen} color="green" style={{ display: "block", marginRight: "0", marginLeft: "auto", marginTop: "20px", marginBottom: "30px" }}>
+            Add candidate
+        </Button>
         <Modal isOpen={isOpen} onClose={onClose}>
             <ModalOverlay />
             <ModalContent>
@@ -97,6 +99,6 @@ export default function CandidatesPage() {
                       />
           }) : null}
         </Stack>
-      </div>
+      </>
     )
 }
