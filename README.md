@@ -51,6 +51,34 @@ refreshes towards the end and indicates that the candidate's latest interview st
 
 Candidates can be assigned to different interview stages of a job by using the "Assign candidate" button. Upon clicking the "Assign candidate" button, the user will be prompted to select the desired candidate, job, and interview stage. This button allows assigning candidates to interview stages of other jobs, an ability not achievable using the drag and drop feature.
 
+### Candidates
+
+The "Candidates" page manages individual candidates more directly. Within this page, candidates can be viewed by a job using the top right selector alongside adding, editing, and deleting certain candidates.
+
+#### Feature: Viewing candidates by job selector
+
+![Example gif of viewing candidates by job selector](./public/candidates_view_by_job_selector_feature.gif)
+
+Candidates can be viewed by a certain job using the top right dropdown menu. Candidates are considered "under a job" if they are assigned to an interview stage for that job.
+
+#### Feature: Adding feedback to candidates
+
+![Example gif of adding feedback to candidates](./public/candidates_edit_feedback.gif)
+
+Individual candidates can be given feedback by clicking on the "Feedback" button, clicking "Submit" after filling out the text area, refreshing the page, and locating the candidate once more.
+
+#### Feature: Adding candidates
+
+![Example gif of adding candidates](./public/candidates_adding_candidates_feature.gif)
+
+Individual candidates can be added by clicking on the "Add candidate" button, entering the details, clicking "Create", and refreshing the page.
+
+#### Feature: Deleting candidates
+
+![Example gif of deleting candidates](./public/candidates_delete_candidates_feature.gif)
+
+Individual candidates can be deleted by clicking on the "Delete" button, clicking "Yes", and refreshing the page.
+
 ## Setup
 
 ## Future Developments
