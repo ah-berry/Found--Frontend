@@ -38,6 +38,19 @@ The "Pipeline" page is the entry point and home page of Found. A hollistic drag 
 The interview stages of candidates for a certain job can be selected by the top right dropdown menu. The "All" option will show the interview stages of all candidates across all jobs.
 If the job selector is unused, it will default to the "All" option.
 
+#### Feature: Assigning candidates to interview stages by drag and drop
+
+![Example gif of assigning candidates to interview stages by drag and drop](./public/pipeline_candidate_drag_and_drop_assignment_feature.gif)
+
+Candidates can be assigned to different interview stages of a job by dragging and dropping the card with their name to the target interview stage. The GIF full page 
+refreshes towards the end and indicates that the candidate's latest interview stage assignment before the page refresh was correctly recorded on the backend.
+
+#### Feature: Assigning candidates to interview stages by "Assign candidate" button
+
+![Example gif of assigning candidates to interview stages by "Assign candidate" button](./public/pipeline_candidate_assignment_by_button_feature.gif)
+
+Candidates can be assigned to different interview stages of a job by using the "Assign candidate" button. Upon clicking the "Assign candidate" button, the user will be prompted to select the desired candidate, job, and interview stage. This button allows assigning candidates to interview stages of other jobs, an ability not achievable using the drag and drop feature.
+
 ## Setup
 
 ## Future Developments
