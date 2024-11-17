@@ -79,6 +79,28 @@ Individual candidates can be added by clicking on the "Add candidate" button, en
 
 Individual candidates can be deleted by clicking on the "Delete" button, clicking "Yes", and refreshing the page.
 
+### Jobs
+
+The "Jobs" page manages individual jobs more directly. Within this page, jobs can be viewed, edited, archived, and deleted.
+
+#### Feature: Edit description of job
+
+![Example gif of edit description of job](./public/jobs_edit_description_feature.gif)
+
+Job descriptions can be edited by clicking the "Edit", filling out the text area, and refreshing the page.
+
+#### Feature: Archiving jobs
+
+![Example gif of archiving jobs](./public/jobs_archiving_feature.gif)
+
+Individual jobs can be archived by clicking the "Archive", clicking "Yes", and viewing the archived job in the "Archive" page.
+
+#### Feature: Deleting jobs
+
+![Example gif of deleting jobs](./public/jobs_deleting_feature.gif)
+
+Individual jobs can be deleted by clicking on the "Delete" button, clicking "Yes", and refreshing the page.
+
 ## Setup
 
 ## Future Developments
