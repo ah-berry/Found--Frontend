@@ -117,7 +117,7 @@ To setup the application, [_npm_](https://docs.npmjs.com/downloading-and-install
 
 1. Open your terminal and `git clone` the GitHub repository URL in your desired directory.
 2. Navigate to the cloned directory with `cd <cloned_repository>` and install the project's dependencies with `npm install` or `yarn install`.
-3. Verify [_Found - Backend_](https://github.com/ah-berry/wellfound_clone_backend) is running on http://localhost:8000.
+3. Verify [_Found - Backend_](https://github.com/ah-berry/Found--Backend) is running on http://localhost:8000.
 4. Run the application with `npm run dev` or `yarn dev`.
 5. Open the application on your browser of choice with http://localhost:3000.
 
