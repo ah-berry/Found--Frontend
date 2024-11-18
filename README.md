@@ -101,6 +101,16 @@ Individual jobs can be archived by clicking the "Archive", clicking "Yes", and v
 
 Individual jobs can be deleted by clicking on the "Delete" button, clicking "Yes", and refreshing the page.
 
+### Archive
+
+The "Archive" page manages individual archived jobs. Archived jobs share similar functionality to the jobs on the "Jobs" page but only differs with the "Unarchive" feature.
+
+#### Feature: Unarchiving jobs
+
+![Example gif of unarchiving jobs](./public/archive_unarchiving_jobs_feature.gif)
+
+Jobs can be unarchived and passed back to the "Jobs" by clicking "Unarchive", clicking "Yes", and visiting the "Jobs" page.
+
 ## Setup
 
 ## Future Developments
