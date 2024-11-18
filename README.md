@@ -123,5 +123,18 @@ To setup the application, [_npm_](https://docs.npmjs.com/downloading-and-install
 
 ## Future Developments
 
+There are things that can be added to improve on the code quality and user experience of Found in the future. Here are some of the developments I can forsee and maybe you, as one of the wonderful users of Found :smiley:, have already identified:
+
+- Addition of a sign-on, sign-in, and sign-out authentication flow for users.
+- Addition of user settings like profile customization.
+- Addition of different user roles (i.e. admin and generic consumers) and privileges (i.e. admin and generic consumers with differing capabilities).
+- "try...catch" statements and error handling for API calls.
+- Persisting job option choice from selector globally across pages.
+- Informative page centered texts if there are no candidates, jobs, or archived jobs.
+- More industry-standard and "aesthetically pleasing" styling for drag and drop "Pipeline" display and "Candidate" and "Job" cards.
+- Landscape search new drag and drop REACT library (as [_react-beautiful-dnd_](https://github.com/atlassian/react-beautiful-dnd) is slated to deprecate) or custom build one from scratch.
+
 ## Contact
+
+The application was created by yours truly! Feel free to follow me on [_LinkedIn_](https://www.linkedin.com/in/ahmed-gorashi-546447b5/) and let me know if you liked using Found!
 
